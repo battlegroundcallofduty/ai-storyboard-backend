@@ -1,3 +1,5 @@
+<div align="center">
+
 # AI 스토리보드 자동 생성 백엔드
 
 ![Python](https://img.shields.io/badge/Python-3.13-3776AB?style=flat-square&logo=python&logoColor=white)
@@ -5,15 +7,20 @@
 ![Supabase](https://img.shields.io/badge/Supabase-Postgres-3ECF8E?style=flat-square&logo=supabase&logoColor=white)
 ![Docker](https://img.shields.io/badge/Docker-Compose-2496ED?style=flat-square&logo=docker&logoColor=white)
 ![AWS](https://img.shields.io/badge/AWS-EC2-FF9900?style=flat-square&logo=amazonaws&logoColor=white)
+<br/>
 ![Claude](https://img.shields.io/badge/Anthropic-Claude-D97757?style=flat-square)
 ![OpenAI](https://img.shields.io/badge/OpenAI-GPT--Image-412991?style=flat-square&logo=openai&logoColor=white)
 ![Gemini](https://img.shields.io/badge/Google-Gemini-4285F4?style=flat-square&logo=googlegemini&logoColor=white)
 ![Cloudflare R2](https://img.shields.io/badge/Cloudflare-R2-F38020?style=flat-square&logo=cloudflare&logoColor=white)
 
-> [!NOTE]
-> 이 문서는 기업 프로젝트 참여 경험을 바탕으로 한 포트폴리오용 README입니다. 기업의 자산(실제 저장소·소스코드·API 명세·내부 문서·실명·도메인 등)은 포함하지 않으며, **문제와 해결 과정**을 중심으로 재구성했습니다.
+</div>
+<br/>
 
-시나리오 텍스트 한 문단을 입력하면 **9컷 분량의 스토리보드(3×3 그리드 이미지 1장)**와 **영상 생성 AI에 바로 넣을 수 있는 영문 통합 프롬프트**를 자동으로 만들어주는 서비스의 백엔드입니다. 방송·영상 제작 분야 기업과의 협업 프로젝트에서, "기획 텍스트 → 콘티" 사이의 수작업 구간을 자동화하는 MVP를 검증하는 것이 목표였습니다.
+> 이 문서는 기업 프로젝트 참여 경험을 바탕으로 한 포트폴리오용 README입니다. <br/>
+> 기업의 자산(실제 저장소·소스코드·API 명세·내부 문서·실명·도메인 등)은 포함하지 않으며, **문제와 해결 과정**을 중심으로 재구성했습니다.
+<br/>
+
+시나리오 텍스트 한 문단을 입력하면 <b>9컷 분량의 스토리보드(3×3 그리드 이미지 1장)</b>와 **영상 생성 AI에 바로 넣을 수 있는 영문 통합 프롬프트**를 자동으로 만들어주는 서비스의 백엔드 관련 문서입니다. 방송·영상 제작 분야 기업과의 협업 프로젝트에서, "기획 텍스트 → 콘티" 사이의 수작업 구간을 자동화하는 MVP를 검증하는 것이 목표였습니다.
 
 ---
 
@@ -22,16 +29,17 @@
 | 항목 | 내용 |
 |---|---|
 | 목적 | 시나리오 입력만으로 9컷 스토리보드 + 영상 AI 투입용 프롬프트를 자동 생성하는 MVP 검증 |
-| 기간 | 2026년 7월, 약 3주 |
+| 기간 | 2026년 7월, 약 3주 (백엔드 공백이 발생한 팀에 지원하여 인턴 합류) |
 | 팀 구성 | PM 2 · Frontend 2 · **Backend 1 (본인)** · UI/UX 1 |
 | 담당 직무 | Backend 전체 (API 설계 · AI 연동 · 인증 · 배포) |
 | 기술 스택 | Python, FastAPI, SQLAlchemy, PostgreSQL(Supabase), Cloudflare R2, Anthropic Claude API, OpenAI Image API, Google Gemini API, Docker, AWS EC2, nginx, pytest |
 | 개발 프로세스 | `feature/*` → `develop` → `main` PR 기반, 기능 단위로 반복 |
 
-> [!IMPORTANT]
-> 이 프로젝트가 가장 검증하고 싶었던 건 "백엔드 구조의 완성도"가 아니라 **"기획한 스토리보드 생성이 실제로 어느 정도까지 구현 가능하고 상용화 가능성이 있는가"**였다고 이해했습니다. 그래서 3주 내내 생성 파이프라인 자체의 품질(프롬프트 설계·이미지 처리 안정성)에 가장 많은 시간을 투자했고, 마이그레이션 도구 등 백엔드 정석 구성은 의도적으로 뒤로 미뤘습니다.
-
-프로젝트 초반 백엔드 공백이 발생한 팀에 지원하여 합류하게 되었고, 이후 프로젝트 종료까지 백엔드 전 영역을 단독으로 담당했습니다.
+> [!NOTE]
+> 이 프로젝트가 가장 검증하고 싶었던 건 "백엔드 구조의 완성도"가 아니라 <br/>
+<b>"기획한 스토리보드 생성이 실제로 어느 정도까지 구현 가능하고 상용화 가능성이 있는가"</b>였다고 이해했습니다. <br/>
+그래서 3주 내내 생성 파이프라인 자체의 품질(프롬프트 설계·이미지 처리 안정성)에 가장 많은 시간을 투자했고, <br/>
+마이그레이션 도구 등 백엔드 정석 구성은 의도적으로 뒤로 미뤘습니다.
 
 ---
 
@@ -142,7 +150,7 @@ erDiagram
 
 ### 문제 1. 이미지 생성 성공 후 후속 단계가 실패하면 비싼 재생성을 반복하게 됨
 
-| | 내용 |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| 내용 |
 |---|---|
 | **문제** | 이미지 생성 API 호출이 성공한 뒤, 후속 처리(크롭·업로드) 단계에서 실패가 나면 어떻게 복구할지 기준이 필요했음 |
 | **원인** | 후속 실패라고 전체를 처음부터 다시 돌리면, 이미 성공한 값비싼 이미지 생성 API 호출까지 불필요하게 반복하게 됨 |
@@ -151,7 +159,7 @@ erDiagram
 
 ### 문제 2. 장르마다 다른 프롬프트 튜닝 필요
 
-| | 내용 |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| 내용 |
 |---|---|
 | **문제** | 모든 장르에 동일한 프롬프트 규칙을 일괄 적용했더니, 특정 장르에서는 오히려 결과 품질이 떨어짐 |
 | **원인** | 장르별로 서사 특성이 달라서, 동일한 세부 지시가 장르에 따라 정반대 효과를 냄 |
@@ -160,7 +168,7 @@ erDiagram
 
 ### 문제 3. 그리드 이미지의 컷 분할 경계가 어긋남
 
-| | 내용 |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| 내용 |
 |---|---|
 | **문제** | 생성된 3×3 그리드 이미지를 컷 9장으로 자를 때, 균일하게 1/3·2/3 지점을 자르면 인접 컷이 조금씩 잘려 들어감 |
 | **원인** | 이미지 생성 모델이 픽셀 단위로 균일한 격자를 그려주지 않고, 구분선 색상도 모델·장르에 따라 다르게 나옴 |
@@ -169,7 +177,7 @@ erDiagram
 
 ### 문제 4. 배포로 서버가 재시작되면 처리 중이던 작업이 방치됨
 
-| | 내용 |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| 내용 |
 |---|---|
 | **문제** | 생성 작업은 별도 백그라운드 처리로 도는데, 배포·재배포로 서버 프로세스가 재시작되면 그 작업이 그냥 사라지고 DB에는 "처리 중" 상태만 영구히 남음 |
 | **원인** | 백그라운드 작업이 요청-응답 사이클과 분리되어 있어, 프로세스가 죽으면 작업 자체도 같이 사라지지만 DB 상태는 갱신되지 않음 |
@@ -178,7 +186,7 @@ erDiagram
 
 ### 문제 5. 로그인 응답 시간으로 가입 여부가 추측될 수 있음
 
-| | 내용 |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| 내용 |
 |---|---|
 | **문제** | 존재하지 않는 이메일로 로그인 시도하면 비밀번호 검증 자체를 건너뛰어 응답이 비정상적으로 빨라짐 |
 | **원인** | 일반적인 조기 반환 로직 — 사용자가 없으면 바로 에러 반환 |
@@ -187,7 +195,7 @@ erDiagram
 
 ### 문제 6. 배포 후 대용량 파일 업로드가 실패함
 
-| | 내용 |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| 내용 |
 |---|---|
 | **문제** | 로컬에서는 되던 이미지/영상 업로드가 배포 서버에서만 실패 |
 | **원인** | 애플리케이션 레벨 업로드 제한과는 별개로, 앞단 웹서버가 기본값으로 요청 바디 용량을 훨씬 작게 제한하고 있었음 |
